@@ -1,4 +1,3 @@
-
 import os
 
 from dotenv import load_dotenv
@@ -40,25 +39,21 @@ def send_email(recipient_address=SENDER_ADDRESS, subject="[Shopping Cart App] Te
 
 
 
-
+user_address = input("Please enter your email address: ")
 
 
 my_content = """
-
     <img
         src="https://img.freepik.com/free-vector/flat-ice-cream-collection_23-2148982427.jpg"
         alt="image of an ice cream"
         height=100
     >
-
     <h1>Ice Cream Shop Menu</h1>
-
     <p>Most popular flavors:</p>
-
     <ul>
         <li>Vanilla Bean </li>
         <li>Choc </li>
         <li>Strawberry</li>
     </ul>
 """
-send_email(html_content=my_content)
+send_email(html_content=my_content, recipient_address=user_address)
