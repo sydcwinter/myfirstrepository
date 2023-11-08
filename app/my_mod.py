@@ -16,7 +16,7 @@ def enlarge(n):
     Pass in n as a parameter.
     Returns a larger version of the number.
     """
-    return n * 100
+    return float(n) * 100
 
 
 
