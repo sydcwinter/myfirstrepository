@@ -40,6 +40,7 @@ def send_email(recipient_address=SENDER_ADDRESS, subject="[Shopping Cart App] Te
         return None
 
 
+
 if __name__ == "__main__":
 
     # ONLY WANT TO DO IF RUNNING THIS FILE FROM COMMAND LINE

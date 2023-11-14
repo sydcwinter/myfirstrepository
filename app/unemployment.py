@@ -27,11 +27,8 @@ API_KEY = os.getenv("ALPHAVANTAGE_API_KEY")
 
 # FUNCTIONS
 
-# ...
-
-# WORKING CODE
-
 def fetch_data():
+
     request_url = f"https://www.alphavantage.co/query?function=UNEMPLOYMENT&apikey={API_KEY}"
 
     response = requests.get(request_url)
@@ -44,8 +41,14 @@ def fetch_data():
     data = parsed_response["data"]
     return data
 
+
+
 if __name__ == "__main__":
-    date = fetch_data()
+
+
+    # WORKING CODE
+
+    data = fetch_data()
 
     # Challenge A
     #
