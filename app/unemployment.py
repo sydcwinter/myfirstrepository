@@ -1,7 +1,6 @@
 
 # IMPORTS AT THE TOP
 
-import os
 import json
 from pprint import pprint
 from statistics import mean
@@ -10,6 +9,7 @@ from dotenv import load_dotenv
 import requests
 from plotly.express import line
 
+from app.alpha import API_KEY
 from app.email_service import send_email
 
 print("BACK IN UNEMPLOYMENT FILE")
@@ -19,7 +19,7 @@ print("BACK IN UNEMPLOYMENT FILE")
 
 load_dotenv() # go look in the .env file for any env vars
 
-API_KEY = os.getenv("ALPHAVANTAGE_API_KEY")
+#API_KEY = os.getenv("ALPHAVANTAGE_API_KEY")
 
 #breakpoint()
 
@@ -31,7 +31,7 @@ API_KEY = os.getenv("ALPHAVANTAGE_API_KEY")
 
 # WORKING CODE
 
-def fetch_data():
+def fetch_unemployment_data():
     request_url = f"https://www.alphavantage.co/query?function=UNEMPLOYMENT&apikey={API_KEY}"
 
     response = requests.get(request_url)
@@ -45,7 +45,7 @@ def fetch_data():
     return data
 
 if __name__ == "__main__":
-    date = fetch_data()
+    data = fetch_unemployment_data()
 
     # Challenge A
     #
@@ -104,3 +104,13 @@ if __name__ == "__main__":
     """
 
     send_email(recipient_address=user_address, html_content=content, subject="Your Unemployment Report")
+
+def format_pct(my_number):
+    """
+    Formats a percentage number like 3.6555554 as percent, rounded to two decimal places.
+
+    Param my_number (float) like 3.6555554
+
+    Returns (str) like '3.66%'
+    """
+    return f"{my_number:.2f}%"
