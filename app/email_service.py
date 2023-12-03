@@ -1,4 +1,3 @@
-
 import os
 
 from dotenv import load_dotenv
@@ -37,9 +36,13 @@ def send_email(recipient_address=SENDER_ADDRESS, subject="[Shopping Cart App] Te
     except Exception as err:
         print(type(err))
         print(err)
+
+if __name__=="__main__":
+
+# ONLY WANT TO DO IF RUNNING THIS FILE FROM COMMAND LINE
+# NOT IF IMPORTING FROM UNEMPLOYMENT FIRLE
+
         return None
-
-
 
 if __name__ == "__main__":
 
@@ -49,12 +52,14 @@ if __name__ == "__main__":
 
 
     my_content = """
-
         <img
             src="https://img.freepik.com/free-vector/flat-ice-cream-collection_23-2148982427.jpg"
             alt="image of an ice cream"
             height=100
         >
+       
+        <h1>Ice Cream Shop Menu</h1>
+        <p>Most popular flavors:</p>
 
         <h1>Ice Cream Shop Menu</h1>
 

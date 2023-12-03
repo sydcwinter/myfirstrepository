@@ -1,21 +1,12 @@
 # my-first-app-inclass-2023
 
-
-
-
 ## Setup
-
 Create and activate a virtual environment:
-
 ```sh
 conda create -n my-first-env python=3.10
-
 conda activate my-first-env
 ```
-
-
 Install packages:
-
 ```sh
 pip install -r requirements.txt
 ```
@@ -36,22 +27,20 @@ SENDER_ADDRESS="example.gmail.com"
 ```
 
 ## Usage
-
 Run the example script:
-
 ```sh
 python app/my_script.py
 ```
-
 Run the unemployment report:
+```sh
+python -m app.unemployment
+```
 
 ```sh
 python app/unemployment.py
 ```
 
-Send an example email:
-
-
 ```sh
+
 python app/email_service.py
 ```
