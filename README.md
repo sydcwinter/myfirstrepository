@@ -1,4 +1,5 @@
 # my-first-app-inclass-2023
+
 ## Setup
 Create and activate a virtual environment:
 ```sh
@@ -35,9 +36,11 @@ Run the unemployment report:
 python -m app.unemployment
 ```
 
-Send an example email:
-
+```sh
+python app/unemployment.py
+```
 
 ```sh
+
 python app/email_service.py
 ```

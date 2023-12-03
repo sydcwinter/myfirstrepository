@@ -31,6 +31,7 @@ def send_email(recipient_address=SENDER_ADDRESS, subject="[Shopping Cart App] Te
         print(response.status_code) #> 202 indicates SUCCESS
         print(response.body)
         print(response.headers)
+        return response.status_code
 
     except Exception as err:
         print(type(err))
@@ -41,6 +42,12 @@ if __name__=="__main__":
 # ONLY WANT TO DO IF RUNNING THIS FILE FROM COMMAND LINE
 # NOT IF IMPORTING FROM UNEMPLOYMENT FIRLE
 
+        return None
+
+if __name__ == "__main__":
+
+    # ONLY WANT TO DO IF RUNNING THIS FILE FROM COMMAND LINE
+    # (NOT IF IMPORTING A FUNCTION FROM THIS FILE)
     user_address = input("Please enter your email address: ")
 
 
@@ -50,8 +57,14 @@ if __name__=="__main__":
             alt="image of an ice cream"
             height=100
         >
+       
         <h1>Ice Cream Shop Menu</h1>
         <p>Most popular flavors:</p>
+
+        <h1>Ice Cream Shop Menu</h1>
+
+        <p>Most popular flavors:</p>
+
         <ul>
             <li>Vanilla Bean </li>
             <li>Choc </li>
