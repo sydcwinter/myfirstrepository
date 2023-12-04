@@ -3,7 +3,7 @@
 
 from flask import Blueprint, request, render_template, redirect, flash
 
-from app.unemployment import fetch_unemployment_data, format_pct
+from app.unemployment import fetch_data, format_pct
 
 unemployment_routes = Blueprint("unemployment_routes", __name__)
 
