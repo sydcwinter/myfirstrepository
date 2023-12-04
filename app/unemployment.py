@@ -1,31 +1,39 @@
 
 # IMPORTS AT THE TOP
 
-import os
 import json
 from pprint import pprint
 from statistics import mean
 
-from dotenv import load_dotenv
 import requests
 from plotly.express import line
 
-
+from app.alpha import API_KEY
 from app.email_service import send_email
 
 print("BACK IN UNEMPLOYMENT FILE")
 
+
 # ENVIRONMENT VARIABLES AND CONSTANTS
 
-load_dotenv() # go look in the .env file for any env vars
 
-API_KEY = os.getenv("ALPHAVANTAGE_API_KEY")
 
 #breakpoint()
 
 #quit()
 
 # FUNCTIONS
+
+def format_pct(my_number):
+    """
+    Formats a percentage number like 3.6555554 as percent, rounded to two decimal places.
+
+    Param my_number (float) like 3.6555554
+
+    Returns (str) like '3.66%'
+    """
+    return f"{my_number:.2f}%"
+
 
 def fetch_data():
 
@@ -106,22 +114,4 @@ if __name__ == "__main__":
     <p> Latest rate: {latest_rate}% as of {latest_date} </p>
     """
 
-fig = line(x=dates, y=rates, title="United States Unemployment Rate over time", labels= {"x": "Month", "y": "Unemployment Rate"})
-fig.show()
-
-
-send_email ()
-
-user_address = input("Please enter your email address: ")
-
-
-latest_rate = data[0]['value']
-latest_date = data[0]["date"]
-
-content = f"""
-<h1> Unemployment Report Email </h1>
-
-<p> Latest rate: {latest_rate}% as of {latest_date} </p>
-"""
-
-send_email(recipient_address=user_address, html_content=content, subject="Your Unemployment Report")
+    send_email(recipient_address=user_address, html_content=content, subject="Your Unemployment Report")

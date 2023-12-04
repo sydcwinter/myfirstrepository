@@ -17,4 +17,10 @@ sendgrid==6.5.0
 
 # TEST
 
+
 pytest
+
+flask
+
+#server needs this to run
+gunicorn
