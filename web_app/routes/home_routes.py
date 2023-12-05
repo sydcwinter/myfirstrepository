@@ -8,14 +8,14 @@ home_routes = Blueprint("home_routes", __name__)
 @home_routes.route("/home")
 def index():
     print("HOME...")
-    return "Welcome Home"
-    #return render_template("home.html")
+    #return "Welcome Home"
+    return render_template("home.html")
 
 @home_routes.route("/about")
 def about():
     print("ABOUT...")
-    return "About Me"
-    #return render_template("about.html")
+    #return "About Me"
+    return render_template("about.html")
 
 @home_routes.route("/hello")
 def hello_world():
@@ -28,8 +28,25 @@ def hello_world():
 
     # get a specific key called "name" if available, otherwise use some specified default value
     # see also: https://www.w3schools.com/python/ref_dictionary_get.asp
+    #try:
+    #    name = url_params["name"]
+    #except:
+    #    name= "World"
     name = url_params.get("name") or "World"
 
     message = f"Hello, {name}!"
-    return message
-    #return render_template("hello.html", message=message)
+    #return message
+    return render_template("hello.html", message=message, x=5)
+
+
+
+@home_routes.route("/api/books.json")
+def books():
+    print("BOOKS...")
+    books = [
+        {"id":1, "title": "Harry Potter", "author": "JK Rowling"},
+        {"id":2, "title": "Lord of the Rings", "author": "Tolkien"},
+        {"id":3, "title": "Hunger Games", "author": "Collins"},
+
+    ]
+    return books
