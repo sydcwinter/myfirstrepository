@@ -24,3 +24,7 @@ flask
 
 #server needs this to run
 gunicorn
+
+pgeocode
+
+IPython
